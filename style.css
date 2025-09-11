@@ -75,13 +75,15 @@ body {
 
 .videos-container {
     flex: 1;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-y: contain;
+    scroll-padding-top: 0;
     margin-top: var(--header-height);
     height: calc(100vh - var(--header-height) - var(--footer-height));
 }
+
+/* esconder scrollbar no WebKit */
+.videos-container::-webkit-scrollbar{ display: none; }
 
 .video-container {
     position: relative;
@@ -97,7 +99,8 @@ video {
     object-fit: cover;
 }
 
-.video-info .video-sidebar {
+.video-info,
+.video-sidebar {
     position: absolute;
     bottom: 120px;
 }
@@ -143,12 +146,12 @@ video {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.app-footer{
+.app-footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -164,7 +167,7 @@ video {
 
 }
 
-.footer-item{
+.footer-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,19 +176,19 @@ video {
     cursor: pointer;
 }
 
-.footer-item i{
+.footer-item i {
     font-size: 20px;
     margin-bottom: 3px;
 }
 
-.footer-item.add-video{
+.footer-item.add-video {
     background-color: var(--color-white);
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 0;
-    color:var(--color-black) ;
+    color: var(--color-black);
 }
